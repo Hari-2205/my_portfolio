@@ -1,38 +1,840 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Signatura+Monoline&display=swap');
+
+:root {
+  --light: #f9f9f9;
+  --dust: #161010;
+  --slate: #d4a5a5;
+  --soft: #f1e6e6;
+  --dark: #2d2d2d;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: 'Signatura Monoline', cursive;
+  background: var(--light);
+  color: var(--dark);
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--slate);
+  padding: 1rem;
+  z-index: 1000;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar ul li {
+  margin: 0 15px;
+}
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.navbar ul li a:hover {
+  color: var(--dust);
+}
+
+/* Hero */
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+  height: 100vh; /* full screen */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  background: url('C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-hero.jpg') no-repeat center center/cover; 
+  /* 👆 replace bg-hero.jpg with your background image file in public folder */
+  color: rgb(19, 17, 17);
+}
+
+/* Left text */
+.hero-content {
+  flex: 1;
+  max-width: 50%;
+}
+
+
+/* Typing effect for name and tagline */
+.hero-content h1 {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeScale 1.5s forwards;
+}
+
+.hero-content .tagline {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.5s forwards;
+  animation-delay: 1.5s;
+}
+.tagline-sub {
+  font-size: 1.0rem;
+  margin-top: 10px;
+  color: #141212; /* or white if you want light text */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.5s forwards;
+  animation-delay: 2.5s; /* comes after tagline */
+}
+
+
+@keyframes fadeScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes typingTagline {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Optional subtle fade-in effect for hero-content container */
+.hero-content {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInHero 1s forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeInHero {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Right image */
+.hero-image {
+  flex: 1;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profile-pic-large {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 6px solid white;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic-large:hover {
+  transform: scale(1.1);
+}
+
+
+/* Social Links */
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-right: 15px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: #2c3e50;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.social-links a:hover {
+  background: #d4a5a5;
+  color: white;
+  transform: scale(1.1);
+}
+/* Contact Section */
+#contact {
+  padding: 60px 20px;
+  background: var(--soft);
+  text-align: center;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+#contact p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: var(--dark);
+}
+
+#contact a {
+  color: var(--dust);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px 18px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  font-family: inherit;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--dust);
+  box-shadow: 0 0 8px rgba(212, 165, 165, 0.4);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+}
+
+/* Send Button */
+.contact-form .btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Status Message */
+.status-msg {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.status-msg:contains("✅") {
+  color: green;
+}
+
+.status-msg:contains("❌"),
+.status-msg:contains("⚠️") {
+  color: red;
+}
+
+/* vCard Button */
+#contact .btn {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+
+/* Animations */
+.slide-left {
+  animation: slideLeft 1.2s ease-out forwards;
+}
+.slide-right {
+  animation: slideRight 1.2s ease-out forwards;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+/* Parallax background for Education */
+.bg-education {
+  background-image: url(C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-education.jpg); /* place your image in public folder */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  padding: 80px 20px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  margin: 40px auto;
+  padding-left: 20px;
+  border-left: 3px solid white;
+  max-width: 800px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -25px;
+  top: 0;
+  background: white;
+  color: var(--slate);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.timeline-content h4 {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #ddd;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.timeline-content p, .timeline-content ul {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #f1f1f1;
+}
+
+.timeline-content ul li {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+
+/* Landing page section */
+.landing {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-hero.jpg') no-repeat center center/cover;
+}
+
+/* Dark overlay to make text visible */
+.landing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.6); /* adjustable darkness */
+  z-index: 1;
+}
+
+/* Text inside landing */
+.landing h1, 
+.landing p {
+  color: #fff;  /* Make text visible */
+  z-index: 2;
+  position: relative;
+  text-align: center;
+}
+
+/* Profile picture */
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  z-index: 2;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.profile-pic:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+
+
+
+.hero h1 {
+  font-size: 3.2rem;
+  margin: 0;
+  color: var(--dark);
+}
+.typing {
+  font-size: 1.6rem;
+  border-right: 2px solid var(--dark);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blink 0.7s infinite;
+  color: var(--slate);
+}
+
+/* Sections */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+/* App.css */
+
+.section h2 {
+  color: #d4a5a5;; /* purple gradient color, or any hex/RGB color you like */
+  font-size: 2.5rem; /* adjust size if needed */
+  text-align: center; /* center the headings */
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase; /* optional, makes headings uppercase */
+}
+
+
+/* Parallax Backgrounds */
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+.bg-education {
+  background-image: url("C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-education.jpg");
+}
+.bg-projects {
+  background-image: url("C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-hero.jpg");
+}
+.bg-certifications {
+  background-image: url("C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-education.jpg");
+}
+.bg-resume {
+  background-image: url("C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-hero.jpg");
+}
+.project-details {
+  margin-top: 10px;
+  padding-left: 20px;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #151212; /* adjust for dark background */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.project-details li {
+  margin-bottom: 6px;
+  list-style-type: disc;
+}
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px; /* curved rectangle */
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.project-image {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+}
+
+
+/* GitHub link at bottom of image */
+.github-link {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.github-link:hover {
+  background: #2575fc;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* About Section */
+/* About Section */
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  min-height: 80vh;        /* takes up most of the screen height */
+  padding: 0 40px;
+  text-align: center;      /* center-align text */
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.85);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  color: var(--dark);
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+/* Skills & Certifications Section */
+#skills {
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+#skills h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+#skills h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f1f1f1;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* List styling */
+.skills-list, .cert-list {
+  list-style-type: disc;
+  padding-left: 40px;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  text-align: left;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.skills-list li, .cert-list li {
+  margin-bottom: 10px;
+}
+.cert-list a {
+  color: #fff; /* white for dark bg */
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.cert-list a:hover {
+  color: #ffcc70; /* highlight color */
+}
+
+
+
+/* Buttons */
+/* Unique Resume Button Styling */
+.resume-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  font-family: 'Signatura Monoline', cursive;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1); /* Glass effect */
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+
+/* Neon glowing border */
+.resume-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(135deg, #2808ab, #2575fc, #ff6ec7, #ffcc70);
+  background-size: 300% 300%;
+  animation: gradientBorder 6s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, 
+                 linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 0;
+}
+
+/* Text on top */
+.resume-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Ripple effect on hover */
+.resume-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: 1;
+}
+
+.resume-btn:hover::after {
+  width: 400px;
+  height: 400px;
+}
+
+.resume-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(106, 17, 203, 0.7), 
+              0 0 40px rgba(106, 17, 203, 0.7);
+}
+
+/* Animated gradient border */
+@keyframes gradientBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: var(--dust);
+  color: white;
+}
+
+/* Animations */
+@keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* Scroll reveal */
+.fade-up { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+.slide-in { opacity: 0; transform: translateX(-50px); transition: all 1s ease; }
+
+.fade-up.show, .slide-in.show { opacity: 1; transform: translate(0,0); }
+/* ---------------------- */
+/* RESPONSIVE MEDIA QUERIES */
+/* ---------------------- */
+
+/* Small devices: phones (max-width: 600px) */
+@media (max-width: 600px) {
+  /* Navbar links stack vertically */
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .hero-content, .hero-image {
+    max-width: 100%;
+    flex: none;
+  }
+
+  .hero-image {
+    margin-top: 20px;
+  }
+
+  .profile-pic-large {
+    width: 200px;
+    height: 200px;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .timeline {
+    padding-left: 10px;
+  }
+
+  .timeline-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    left: -20px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 0.9rem;
+  }
+
+  .skills-list, .cert-list {
+    padding-left: 20px;
+    font-size: 0.95rem;
+  }
+
+  .resume-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Medium devices: tablets (max-width: 900px) */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content, .hero-image {
+    max-width: 100%;
+    flex: none;
+  }
+
+  .profile-pic-large {
+    width: 250px;
+    height: 250px;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+
+  .timeline {
+    padding-left: 15px;
+  }
+
+  .timeline-icon {
+    width: 38px;
+    height: 38px;
+    left: -22px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 0.95rem;
+  }
+}
+
+/* Extra adjustments for very small screens */
+@media (max-width: 400px) {
+  .navbar ul li {
+    margin: 5px 0;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .section {
+    padding: 50px 15px;
+  }
+
+  .project-details {
+    font-size: 0.85rem;
   }
 }
