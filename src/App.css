@@ -913,15 +913,15 @@ footer {
 
   .hero-image {
     position: relative;
-    top: -60px; /* move image up */
+    top: -40px; /* move image up */
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .profile-pic-large {
-    width: 220px;
-    height: 220px;
+    width: 230px;
+    height: 230px;
   }
 }
 
