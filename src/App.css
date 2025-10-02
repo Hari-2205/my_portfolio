@@ -17,33 +17,73 @@ body {
 }
 
 /* Navbar */
+/* Navbar Base */
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d2d2d;
+  padding: 10px 20px;
   position: fixed;
   top: 0;
-  width: 100%;
-  background: var(--slate);
-  padding: 1rem;
+  left: 0;
+  right: 0;
   z-index: 1000;
 }
-.navbar ul {
+
+.navbar .logo {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Nav Links (Desktop) */
+.nav-links {
   display: flex;
+  gap: 20px;
   list-style: none;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
 }
-.navbar ul li {
-  margin: 0 15px;
-}
-.navbar ul li a {
+
+.nav-links li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
 }
-.navbar ul li a:hover {
-  color: var(--dust);
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
 }
+
+/* Mobile Styles */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #2d2d2d;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+
 
 /* Hero */
 
@@ -838,3 +878,39 @@ footer {
     font-size: 0.85rem;
   }
 }
+/* Adjust Hero for Mobile */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px 20px; /* top padding increased so content sits below navbar */
+  }
+
+  .hero-content {
+    margin-top: 40px; /* optional: push tagline further down */
+  }
+
+  .hero-content h1 {
+    font-size: 2rem; /* adjust size for mobile */
+  }
+
+  .tagline, .tagline-sub {
+    font-size: 1rem;
+  }
+}
+
+/* Move profile pic up for mobile */
+@media (max-width: 900px) {
+  .hero-image {
+    margin-top: -30px; /* move it 30px up, adjust as needed */
+    display: flex;
+    justify-content: center; /* keep it centered horizontally */
+    align-items: center;
+  }
+
+  .profile-pic-large {
+    width: 250px;
+    height: 250px;
+  }
+}
+

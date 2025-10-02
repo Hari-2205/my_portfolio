@@ -7,6 +7,7 @@ import emailjs from "emailjs-com";
 
 function App() {
   const [openProject, setOpenProject] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // ✅ Contact Form State
   const [formData, setFormData] = useState({
@@ -111,15 +112,24 @@ function App() {
     <div className="App">
       {/* Navbar */}
       <nav className="navbar">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+  <div className="logo">MyPortfolio</div>
+
+  {/* 3 Dots / Hamburger Icon */}
+  <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+    ⋮
+  </div>
+
+  {/* Navbar Links */}
+  <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+    <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+    <li><a href="#education" onClick={() => setMenuOpen(false)}>Education</a></li>
+    <li><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
+    <li><a href="#certifications" onClick={() => setMenuOpen(false)}>Certifications</a></li>
+    <li><a href="#resume" onClick={() => setMenuOpen(false)}>Resume</a></li>
+    <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
+  </ul>
+</nav>
+
 
       {/* Hero Section */}
       <header className="hero">
