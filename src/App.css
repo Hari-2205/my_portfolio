@@ -55,7 +55,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 10%;
-  background: url('C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-hero.jpg') no-repeat center center/cover; 
+  background: url('./assets/bg-hero.jpg') no-repeat center center/cover; 
   /* 👆 replace bg-hero.jpg with your background image file in public folder */
   color: rgb(19, 17, 17);
 }
@@ -297,7 +297,7 @@ body {
 }
 /* Parallax background for Education */
 .bg-education {
-  background-image: url(C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-education.jpg); /* place your image in public folder */
+  background-image: url("./assets/bg-education.jpg"); /* place your image in public folder */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -375,7 +375,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url('C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-hero.jpg') no-repeat center center/cover;
+  background: url("./assets/bg-hero.jpg") no-repeat center center/cover;
 }
 
 /* Dark overlay to make text visible */
@@ -460,16 +460,16 @@ body {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 .bg-education {
-  background-image: url("C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-education.jpg");
+  background-image: url("./assets/bg-education.jpg");
 }
 .bg-projects {
-  background-image: url("C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-hero.jpg");
+  background-image: url("./assets/bg-hero.jpg");
 }
 .bg-certifications {
-  background-image: url("C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-education.jpg");
+  background-image: url("./assets/bg-education.jpg");
 }
 .bg-resume {
-  background-image: url("C:\Users\konda\OneDrive\Desktop\portfolionew\portfolio\public\bg-hero.jpg");
+  background-image: url("./assets/bg-hero.jpg");
 }
 .project-details {
   margin-top: 10px;
