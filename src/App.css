@@ -883,7 +883,7 @@ footer {
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 80px 20px 20px; /* top padding increased so content sits below navbar */
+    padding: 60px 20px 20px; /* top padding increased so content sits below navbar */
   }
 
   .hero-content {
