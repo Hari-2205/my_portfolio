@@ -901,18 +901,29 @@ footer {
 
 /* Move profile pic up for mobile */
 @media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px 20px; /* reduce top padding */
+  }
+
+  .hero-content {
+    margin-top: 0; /* remove extra margin pushing down */
+  }
+
   .hero-image {
-    position: relative;      /* enable moving with top */
-    top: -60px;              /* move the whole image container up, adjust as needed */
+    position: relative;
+    top: -40px; /* move image up */
     display: flex;
-    justify-content: center;  /* keep it centered horizontally */
+    justify-content: center;
     align-items: center;
   }
 
   .profile-pic-large {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
   }
 }
+
 
 
