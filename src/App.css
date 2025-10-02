@@ -883,7 +883,7 @@ footer {
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 80px 20px 20px; /* top padding increased so content sits below navbar */
+    padding: 70px 20px 20px; /* top padding increased so content sits below navbar */
   }
 
   .hero-content {
@@ -902,9 +902,10 @@ footer {
 /* Move profile pic up for mobile */
 @media (max-width: 900px) {
   .hero-image {
-    margin-top: -80px; /* move it 30px up, adjust as needed */
+    position: relative;      /* enable moving with top */
+    top: -60px;              /* move the whole image container up, adjust as needed */
     display: flex;
-    justify-content: center; /* keep it centered horizontally */
+    justify-content: center;  /* keep it centered horizontally */
     align-items: center;
   }
 
@@ -913,4 +914,5 @@ footer {
     height: 250px;
   }
 }
+
 
