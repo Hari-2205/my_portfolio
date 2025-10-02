@@ -913,7 +913,7 @@ footer {
 
   .hero-image {
     position: relative;
-    top: -40px; /* move image up */
+    top: -60px; /* move image up */
     display: flex;
     justify-content: center;
     align-items: center;
